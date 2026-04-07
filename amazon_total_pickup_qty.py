@@ -21,6 +21,10 @@ def expand_sets(row):
     barcodes = barcode_field.split(' ')
 
     for barcode in barcodes:
+     # sometimes spacing is inaccurate
+      if barcode == '':
+        continue
+       
       expanded.append({
           'Original Jan': barcode.strip(),
           'Total Qty': int(row['Ship out\nQty'])
